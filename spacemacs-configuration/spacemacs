@@ -621,7 +621,7 @@ before packages are loaded."
   (display-battery-mode 1)
   (add-to-list 'auto-mode-alist '("DEPS[.a-z]*" . python-mode))
   (add-to-list 'auto-mode-alist '("[a-zA-Z]*\\.gn" . conf-mode))
-  (add-to-list 'auto-mode-alist '("[a-zA-Z0-9]*\\.mm" . objc-mode))
+  (add-to-list 'auto-mode-alist '("[a-zA-Z0-9]*\\.[m]+" . objc-mode))
   (add-hook 'vterm-mode-hook
             (lambda ()
               (set (make-local-variable 'buffer-face-mode-face) '(:family "MesloLGS NF"))
