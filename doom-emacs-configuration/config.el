@@ -35,11 +35,15 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'leuven
-      ;; 'doom-one
+(setq doom-theme
+      ;;'leuven
+      'doom-one
       doom-font (font-spec :family "Fira Mono" :size 14.0 :weight 'regular))
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
+;; emacs-mac v29.1 has bug for large title bar, develop branch has fixed.
+;; when updated, delete below hack patch.
+(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -55,6 +59,12 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(blink-cursor-mode 1)
+
+;; speed up displaying
+(setq long-line-threshold 1000
+      large-hscroll-threshold 1000
+      syntax-wholeline-max 1000)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
